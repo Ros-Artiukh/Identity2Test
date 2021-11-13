@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Project>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>@User.Identity.Name</p>
+
+    <form method="post" asp-controller="Account" asp-action="Logout">
+        <input type="submit" value="Logout" />
+    </form>
+    <p>Add developer to project</p>
+    <form method="post" asp-controller="Home" asp-action="AddDeveloperToProject">
+        <select id="projectId" name="projectId">
+            <option selected disabled >Choose Project</option>
+            @foreach (var p in Model)
+            {
+                <option value="@p.Id">@p.Name</option>
+            }
+        </select>
+        <input type="text" name="developerName" />
+        <input type="submit" value="send" />
+    </form>
+    <p>Find project by developer</p>
+    <form method="post" asp-controller="Home" asp-action="GetProjectsByDeveloper">
+        <input type="text" name="developer" />
+        <input type="submit" value="send" />
+    </form>
+}
+else
+{
+    <p>Login for add developers or see projects by developers</p>
+    <a asp-controller="Account" asp-action="Login">Login</a>
+    <a asp-controller="Account" asp-action="Register">Register</a>
+}

@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Developer>
+
+    <h2>Developers:</h2>
+    <ui>
+        @foreach (var d in Model)
+        {
+            <li>@d.Name</li>
+        }
+    </ui>

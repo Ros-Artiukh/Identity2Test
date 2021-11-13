@@ -1,0 +1,14 @@
+﻿@model Identity2.ViewModels.AddPhoneNumberViewModel
+
+<h2>Add Phone number</h2>
+<form method="post" asp-controller="Account" asp-action="AddPhoneNumber">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="Number"></label><br />
+        <input asp-for="Number" />
+        <span asp-validation-for="Number"></span>
+    </div>
+    <div>
+        <input type="submit" value="send" />
+    </div>
+</form>

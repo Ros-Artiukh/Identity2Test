@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Project>
+
+<h2>Projects:</h2>
+<ui>
+    @foreach (var m in Model)
+    {
+        <li>Name: @m.Name</li>
+        <li>Client: @m.Client</li>
+        <li> Developers: 
+            <ul>
+                @foreach (var dev in m.Developers)
+                {
+                  <li> @dev.Name </li>
+                }
+            </ul> 
+       </li>
+    }
+</ui>

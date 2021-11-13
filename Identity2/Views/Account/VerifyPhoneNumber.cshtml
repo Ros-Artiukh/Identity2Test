@@ -1,0 +1,19 @@
+﻿@model Identity2.ViewModels.VerifyPhoneNumberViewModel
+
+<h2>Add Code</h2>
+<form method="post" asp-controller="Account" asp-action="VerifyPhoneNumber">
+    <div></div>
+    <div>
+        <label asp-for="Code"></label><br />
+        <input asp-for="Code" />
+        <span asp-validation-for="Code"></span>
+    </div>
+    <div style="display:none;">
+        <label asp-for="@Model.PhoneNumber"></label><br />
+        <input asp-for="@Model.PhoneNumber" />
+        <span asp-validation-for="@Model.PhoneNumber"></span>
+    </div>
+    <div>
+        <input type="submit" value="send" />
+    </div>
+</form>
